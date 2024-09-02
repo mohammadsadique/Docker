@@ -31,6 +31,8 @@ After creating the `Dockerfile`, build the Docker image with the following comma
 ```bash
 docker build -t your-image-name:version
 
+-t = tag
+
 Then run this image to create a container
 
 ```bash
