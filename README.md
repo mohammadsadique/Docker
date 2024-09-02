@@ -24,6 +24,10 @@ To understand the basics of Docker, you'll need a single file named `Dockerfile`
     EXPOSE 80
     ```
 
+    ## COPY . /var/www/html
+      # The (.) Dot target `php page`
+      #  `/var/www/html` container's web directory
+
 ### Building the Docker Image
 
 After creating the `Dockerfile`, build the Docker image with the following command:
@@ -33,15 +37,17 @@ docker build -t your-image-name:version
 
 -t = tag
 
+```
+
 Then run this image to create a container
 
 ```bash
 docker run -d -p 1000:80 your-image-name:version
 
-
 1000 = it define local port which i want to use 
 80 =  is used by container to serve apache
 
-and now finally you are ready to run your project in 
+```
+And now finally you are ready to run your project in 
 
 http://localhost:1000/
