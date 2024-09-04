@@ -1,53 +1,9 @@
 # Docker
 
-Learn `Docker` in a simple way
+`Learn Docker in a simple way`
 
-## Start with the Basics
+## [Volume One](https://github.com/mohammadsadique/Docker/tree/main/volume-one) 
 
-1. **Install Docker**  
-   First, install `Docker` from its official website: [Docker Official Website](https://www.docker.com/).
+The volume one teach you how to run docker. It require only two files Dockerfile and index.php file. I am working with php so i made docker file for php. So, first create webserver to run my project here i use php 7.4 apache.
 
-## Getting Started
-
-To understand the basics of Docker, you'll need a single file named `Dockerfile`.
-
-### Creating a Dockerfile
-
-1. Create a file named `Dockerfile` without any extension.
-2. Inside the `Dockerfile`, add the following lines of code:
-
-    ```Dockerfile
-    FROM php:8.3-apache
-
-    COPY . /var/www/html
-
-    EXPOSE 80
-    ```
-
-    ## COPY . /var/www/html
-      # The (.) Dot target `php page`
-      #  `/var/www/html` container's web directory
-
-### Building the Docker Image
-
-After creating the `Dockerfile`, build the Docker image with the following command:
-
-```bash
-docker build -t your-image-name:version
-
--t = tag
-
-```
-
-Then run this image to create a container
-
-```bash
-docker run -d -p 1000:80 your-image-name:version
-
-1000 = it define local port which i want to use 
-80 =  is used by container to serve apache
-
-```
-And now finally you are ready to run your project in 
-
-http://localhost:1000/
+To see a full detail information please click [Volume One Readme](https://github.com/mohammadsadique/Docker/tree/main/volume-one)
