@@ -42,11 +42,13 @@ docker build -t your-image-name:version
 Then run this image to create a container
 
 ```bash
-docker run -d -p 1000:80 your-image-name:version
+docker run -d --name containerName -p 1000:80 your-image-name:version
 
+-d = detached mode (Run container in the background)
+--name containerName = Names of the container
+-p = port
 1000 = it define local port which i want to use 
 80 =  is used by container to serve apache
-
 ```
 And now finally you are ready to run your project in 
 
