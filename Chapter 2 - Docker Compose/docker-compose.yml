@@ -1,0 +1,22 @@
+services:
+  web:
+    image: php:8.3.11-apache  
+    ports:
+      - "8000:80"  
+    volumes:
+      - .:/var/www/html 
+
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "123"
+
+  phpmyadmin:
+    image: phpmyadmin:latest 
+    restart: always
+    ports:
+      - "8001:80" 
+    environment:
+      PMA_HOST: db 
+
