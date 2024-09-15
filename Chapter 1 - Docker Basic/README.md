@@ -85,7 +85,7 @@ docker build -t your-image-name:version .
 # . = The . at the end of the docker build command tells Docker to look for the Dockerfile in the current directory.
 ```
 
-### Running the Docker Image
+### Run the Docker Image
 Run the image to create a container with:
 ```bash
 docker run -d --name containerName -p 1000:80 your-image-name:version
@@ -98,40 +98,55 @@ docker run -d --name containerName -p 1000:80 your-image-name:version
 ```
 And now finally you are ready to run your project.
 
-Access your project at:  http://localhost:1000/
+## Application URL
+The application runs on [http://localhost:1000/](http://localhost:1000/).
 
 
-Note:- 
+**Note:**  
 
 When you edit your index.php file after the container is already running, the changes won’t be reflected in the container unless you’ve set up Docker volumes or bind mounts to sync your local files with the files inside the container.
 
 The application is running in this url http://localhost:1000/ now when you edit your index.php page it don't reflect so you have to re-run the docker using `docker run -d -p 8000:80 imagename`
 
-Follow this step to find currently running container
+## Follow this step to find currently running container
 
-Check Running Containers:
-docker ps : Give a list of container which is running
+**Check Running Containers:**
 
-Stop the running container:
-docker stop NAMES : This help you to stop the container
+   Give a list of container which is running
+   ```
+      docker ps
+   ```
+**Stop the running container:**
 
+   This help you to stop the container
+   ```
+      docker stop NAMES
+   ```
+## Two ways to run the changes
 
-Two ways to run the changes -
-
-1. Stop the Container, Rebuild the Image, and Run Again
+### 1. Stop the Container, Rebuild the Image, and Run Again
+   When apply this way you always have to follow the same steps whenever you edit index page.
 
    Follow the previous steps 
-   - Building the Docker Image
-   - Running the Docker Image
 
-2. Use Bind Mounts to Sync Local Changes
-
-   Follow the previous steps 
       - Building the Docker Image
-      - Running the Docker Image (docker run -d -p 8000:80 -v "${PWD}:/var/www/html" imageName)
+      - Run the Docker Image
 
-   -v = volume  (It used to create a volume or a bind mount)
-   $(pwd) = shell command that returns the current working directory
+### 2. Use Volume or Bind Mounts to Sync Local Changes
+   This method allows you to reflect changes in real-time without stopping the container.
 
-   So, now after creating volume you can change index page any time it reflect changes in real time during continer runnign.
+   Follow the previous steps 
+
+      - Building the Docker Image
+      - Running the Docker Image With Volume
+        (docker run -d -p 8000:80 -v "${PWD}:/var/www/html" imageName)
+
+   Explaination :- Run the Docker Container with Bind Mounts:
+   ```
+      docker run -d -p 8000:80 -v "${PWD}:/var/www/html" imageName
+
+      -v = volume  (It used to create a volume or a bind mount)
+      ${pwd} = shell command that returns the current working directory
+   ```
+Now, you can make changes to index.php, and they will be reflected immediately in the running container.
     
