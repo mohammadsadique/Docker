@@ -99,3 +99,39 @@ docker run -d --name containerName -p 1000:80 your-image-name:version
 And now finally you are ready to run your project.
 
 Access your project at:  http://localhost:1000/
+
+
+Note:- 
+
+When you edit your index.php file after the container is already running, the changes won’t be reflected in the container unless you’ve set up Docker volumes or bind mounts to sync your local files with the files inside the container.
+
+The application is running in this url http://localhost:1000/ now when you edit your index.php page it don't reflect so you have to re-run the docker using `docker run -d -p 8000:80 imagename`
+
+Follow this step to find currently running container
+
+Check Running Containers:
+docker ps : Give a list of container which is running
+
+Stop the running container:
+docker stop NAMES : This help you to stop the container
+
+
+Two ways to run the changes -
+
+1. Stop the Container, Rebuild the Image, and Run Again
+
+   Follow the previous steps 
+   - Building the Docker Image
+   - Running the Docker Image
+
+2. Use Bind Mounts to Sync Local Changes
+
+   Follow the previous steps 
+      - Building the Docker Image
+      - Running the Docker Image (docker run -d -p 8000:80 -v "${PWD}:/var/www/html" imageName)
+
+   -v = volume  (It used to create a volume or a bind mount)
+   $(pwd) = shell command that returns the current working directory
+
+   So, now after creating volume you can change index page any time it reflect changes in real time during continer runnign.
+    
