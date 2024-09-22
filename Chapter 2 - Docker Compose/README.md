@@ -14,14 +14,14 @@ You can save YAML files with either the `.yml` or `.yaml` extension! Both are ac
 ## [Docker Hub](https://hub.docker.com/) 
 Docker Hub is like a marketplace where you can find the images (pre-built software packages) you need for your project.
 
-When you create a docker-compose.yml file, you are setting up an environment for your project. For a PHP project, you might need services like `Apache`, `MySQL`, and `phpMyAdmin`.
+When you create a `docker-compose.yml` file, you are setting up an environment for your project. For a PHP project, you might need services like `Apache`, `MySQL`, and `phpMyAdmin`.
 
-Docker Hub is where you find the Docker images needed for your project. You can search [Docker Hub](https://hub.docker.com/)  for images like `php`, `mysql`, and `phpmyadmin`.
+You can search  [Docker Hub](https://hub.docker.com/) for images like php, mysql, and phpmyadmin.
 
 For example, if you need PHP 7.3, search for "php" on Docker Hub. You'll find various results, including the official PHP image. To get a specific version, check the `Tags` section.
 
-## Setup An Environment
-Once you have your `docker-compose.yml` file, you can add multiple  services (containers) to it. You can find image name from docker image and configuration from Docker's documentation, Github  or even search for it on Google or ask AI.
+## Set Up an Environment
+Once you have your `docker-compose.yml` file, you can add multiple  services (containers) to it. You can find image names and configurations from Docker's documentation, Github  or even searching on Google or use AI.
 
 Just like in a `Dockerfile` where you define things like the image name, ports, and volumes, you’ll do similar things in your `docker-compose.yml` file.
 
@@ -52,4 +52,22 @@ services:
 ```
 
 Don’t worry about memorizing the code—you can easily find similar examples in Docker documentation, on Google, or by asking AI!
+
+## Build & Run Docker
+When you run the command below in the terminal for the first time, it will `build` and `run` the containers.
+
+
+If you make changes to the `docker-compose.yml` file,Docker will automatically check for updates.
+
+ - When it `builds`, it pulls the image from the Docker Hub server.
+
+ - When it `runs`,  it starts the containers (without needing to build again) and creates an instance of the image (i.e., it creates a container from the image).
+
+
+```
+docker compose up -d
+```
+
+## Application URL
+The application runs on http://localhost:8000/ and phpMyAdmin runs at http://localhost:8001/.
 
