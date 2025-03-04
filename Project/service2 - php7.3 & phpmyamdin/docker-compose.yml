@@ -1,0 +1,55 @@
+
+services:
+  web:
+    build:
+     context: .
+     dockerfile: Dockerfile
+    image: project-image
+    container_name: filament
+    ports:
+      - "8009:80"
+    volumes:
+      - /home/mdsadique/office/Ductrite/api:/var/www/html
+  mysql:
+    container_name: mysql
+    image: mysql:5.7
+    ports:
+     - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_USER: 'sushant'
+      MYSQL_PASS: 'password'
+      MYSQL_DATABASE: 'ductrite'
+    volumes:
+      - db-data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin
+    ports:
+      - 8080:80
+    environment:
+      #     - PMA_ARBITRARY=1
+      PMA_HOST: 'mysql'
+      PMA_USER: 'root'
+      PMA_PASSWORD: 'root'
+      UPLOAD_LIMIT: '100M'
+      PMA_UPLOAD_LIMIT: '100M'
+    volumes:
+      - phpadmin:/etc/phpmyadmin
+
+  redis:
+    container_name: redis
+    image: redis:alpine
+    ports:
+      - 6378:6379
+    command:
+      - sh
+      - -c
+      - redis-server --appendonly yes --appendfilename "appendonly.aof" --maxmemory 200MB --maxmemory-policy allkeys-lru
+
+volumes:
+  db-data:
+  pg-extensions:
+  phpadmin:
+  php:
+    #  vector-so1:
