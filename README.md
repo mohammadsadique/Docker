@@ -13,3 +13,10 @@ For detailed information, please click [Chapter One Readme](https://github.com/m
 Learn how to use `docker-compose.yml` to manage multiple services (containers) in one file. This chapter also covers [Docker Hub](https://hub.docker.com/) and how to use pre-built images. 
 
 To see a full detail information please click [Chapter Two Readme](https://github.com/mohammadsadique/Docker/blob/main/Chapter%202%20-%20Docker%20Compose/README.md)
+
+
+## [Projects](https://github.com/mohammadsadique/Docker/tree/main/Project)
+
+Before exploring the projects, it's important to have a basic understanding of Docker.
+
+Each project includes its own Dockerfile and docker-compose.yml files. Feel free to use and adapt the code to suit your needs.
