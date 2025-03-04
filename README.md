@@ -19,4 +19,4 @@ To see a full detail information please click [Chapter Two Readme](https://githu
 
 Before exploring the projects, it's important to have a basic understanding of Docker.
 
-Each project includes its own Dockerfile and docker-compose.yml files. Feel free to use and adapt the code to suit your needs.
+Each project includes its own `Dockerfile` and `docker-compose.yml` files. Feel free to use and adapt the code to suit your needs.
